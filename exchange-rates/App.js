@@ -63,7 +63,6 @@ export default function App() {
         console.log("error", error);
         setIsLoadingResults(false);
       });
-    console.log(result);
   };
 
   useEffect(() => {
