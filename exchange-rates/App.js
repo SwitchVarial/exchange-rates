@@ -19,7 +19,7 @@ export default function App() {
   const [amount, setAmount] = useState("");
   const [currencies, setCurrencies] = useState([]);
   const [result, setResult] = useState();
-  const [fromCurrency, setFromCurrency] = useState("");
+  const [fromCurrency, setFromCurrency] = useState("USD");
   const [isLoadingCurrencies, setIsLoadingCurrencies] = useState(false);
   const [isLoadingResults, setIsLoadingResults] = useState(false);
   const toCurrency = "EUR";
@@ -55,14 +55,15 @@ export default function App() {
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => {
-        setResult(JSON.parse(result));
+      .then((json) => {
+        setResult(JSON.parse(json));
         setIsLoadingResults(false);
       })
       .catch((error) => {
         console.log("error", error);
         setIsLoadingResults(false);
       });
+    console.log(result);
   };
 
   useEffect(() => {
@@ -84,10 +85,8 @@ export default function App() {
       <View style={styles.results}>
         {isLoadingResults ? (
           <ActivityIndicator size="large" color="mediumorchid" />
-        ) : result ? (
-          <Text style={styles.resultsText}>
-            {parseFloat(result.result).toFixed(2)} €
-          </Text>
+        ) : result !== undefined ? (
+          <Text style={styles.resultsText}>{result.result.toFixed(2)} €</Text>
         ) : (
           <View style={styles.container}>
             <Text style={styles.listTitle}>Sorry, we could load results!</Text>
