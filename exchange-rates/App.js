@@ -94,7 +94,7 @@ export default function App() {
       </View>
       <View style={styles.row}>
         <View>
-          <Text style={styles.label}>Amount EUR</Text>
+          <Text style={styles.label}>Amount</Text>
           <TextInput
             style={styles.input}
             onChangeText={(text) => setAmount(text)}
