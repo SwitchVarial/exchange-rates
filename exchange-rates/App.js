@@ -12,9 +12,6 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 
-// api key google 4oz2LA8Bw1n0ixX0rCbnxTtPqYgKezWF
-// api key haaga-helia nxTRsZ6bz5rYXRpl49HwIvpS0LDk2TF8
-
 export default function App() {
   const [amount, setAmount] = useState("");
   const [currencies, setCurrencies] = useState([]);
@@ -25,7 +22,7 @@ export default function App() {
   const toCurrency = "EUR";
 
   const myHeaders = new Headers();
-  myHeaders.append("apikey", "nxTRsZ6bz5rYXRpl49HwIvpS0LDk2TF8");
+  myHeaders.append("apikey", "put your api key here");
 
   const requestOptions = {
     method: "GET",
